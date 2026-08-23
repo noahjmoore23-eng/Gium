@@ -1,0 +1,13 @@
+{
+  "name": "personal-site",
+  "version": "1.0.0",
+  "private": true,
+  "type": "module",
+  "description": "Personal resume and about site \u2014 static, dependency-free.",
+  "scripts": {
+    "build": "node build.js",
+    "test": "node --test",
+    "serve": "node build.js && node --run serve:only",
+    "serve:only": "node -e \"import('node:http').then(async ({default:http})=>{const {readFile}=await import('node:fs/promises');const {join,extname}=await import('node:path');const types={'.html':'text/html','.css':'text/css','.js':'text/javascript','.svg':'image/svg+xml'};http.createServer(async(q,s)=>{const p=join('dist',q.url==='/'?'index.html':q.url.split('?')[0]);try{const b=await readFile(p);s.writeHead(200,{'content-type':types[extname(p)]||'application/octet-stream'});s.end(b);}catch{s.writeHead(404);s.end('Not found');}}).listen(5050,()=>console.log('http://127.0.0.1:5050'));})\""
+  }
+}

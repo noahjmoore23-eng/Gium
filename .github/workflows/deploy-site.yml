@@ -1,0 +1,53 @@
+name: Deploy personal site
+
+# Manual only, on purpose: publishing a personal site is a decision, not a
+# side effect of pushing code. To publish on every push to main instead,
+# uncomment the push trigger below.
+on:
+  workflow_dispatch:
+  # push:
+  #   branches: [main]
+  #   paths: ['personal-site/**', '.github/workflows/deploy-site.yml']
+
+permissions:
+  contents: read
+  pages: write
+  id-token: write
+
+# Let a running deploy finish rather than cancelling it mid-publish.
+concurrency:
+  group: pages
+  cancel-in-progress: false
+
+jobs:
+  build:
+    runs-on: ubuntu-latest
+    defaults:
+      run:
+        working-directory: personal-site
+    steps:
+      - uses: actions/checkout@v4
+
+      - uses: actions/setup-node@v4
+        with:
+          node-version: '22'
+
+      - name: Test
+        run: npm test
+
+      - name: Build
+        run: npm run build
+
+      - uses: actions/upload-pages-artifact@v3
+        with:
+          path: personal-site/dist
+
+  deploy:
+    needs: build
+    runs-on: ubuntu-latest
+    environment:
+      name: github-pages
+      url: ${{ steps.deployment.outputs.page_url }}
+    steps:
+      - id: deployment
+        uses: actions/deploy-pages@v4
