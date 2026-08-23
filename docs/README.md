@@ -4,7 +4,7 @@ A single static page aimed at sales hiring managers. No build step, no
 dependencies, no framework: three files and a few assets.
 
 ```
-site/
+docs/
   index.html    the page, content included — editable spots are marked EDIT
   styles.css    all styling; the tokens at the top of the file control everything
   main.js       theme toggle, nav highlighting, footer year
@@ -49,22 +49,25 @@ placeholder a hiring manager will notice.
 
 ## Viewing it locally
 
-Open `site/index.html` in a browser — it works straight off the filesystem. Or:
+Open `docs/index.html` in a browser — it works straight off the filesystem. Or:
 
 ```bash
-python3 -m http.server -d site 8080   # then visit http://localhost:8080
+python3 -m http.server -d docs 8080   # then visit http://localhost:8080
 ```
 
 ## Publishing it
 
 Plain static files, so any host will serve it.
 
-**GitHub Pages** — Settings → Pages, set Source to *Deploy from a branch*, pick
-your branch and the `/site` folder. Publishes at
-`https://noahjmoore23-eng.github.io/gium/`.
+**GitHub Pages** — this is why the folder is named `docs`: when Pages deploys
+from a branch it only offers the repository root or `/docs`, no other folder.
 
-**Netlify or Vercel** — drag the `site/` folder onto the dashboard, or point a
-project at this repo with `site` as the publish directory and no build command.
+Settings → Pages → Source: *Deploy from a branch* → pick the branch and the
+`/docs` folder → Save. It goes live in about a minute at
+`https://noahjmoore23-eng.github.io/Gium/`, and redeploys on every push.
+
+**Netlify or Vercel** — drag the `docs/` folder onto the dashboard, or point a
+project at this repo with `docs` as the publish directory and no build command.
 
 **Worth doing: deploy Gium too.** The case study currently links to the GitHub
 repo. A hiring manager clicking a *working demo* is worth far more than one
