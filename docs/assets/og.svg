@@ -1,24 +1,24 @@
 <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 1200 630" width="1200" height="630">
   <rect width="1200" height="630" fill="#fbfaf8"/>
   <rect x="0" y="0" width="1200" height="10" fill="#1d4ed8"/>
-  <text x="80" y="150" font-family="Helvetica, Arial, sans-serif" font-size="24"
+  <text x="80" y="140" font-family="Helvetica, Arial, sans-serif" font-size="23"
         font-weight="bold" fill="#7a736a" letter-spacing="3">ACCOUNT EXECUTIVE</text>
-  <text x="80" y="255" font-family="Georgia, 'Times New Roman', serif" font-size="82"
+  <text x="80" y="243" font-family="Georgia, 'Times New Roman', serif" font-size="80"
         font-weight="600" fill="#14120f" letter-spacing="-2">Noah Moore</text>
-  <text x="80" y="330" font-family="Helvetica, Arial, sans-serif" font-size="31"
-        fill="#4a453d">I learn the customer&#8217;s numbers before I open a deck.</text>
+  <text x="80" y="315" font-family="Georgia, 'Times New Roman', serif" font-size="38"
+        font-weight="600" fill="#1d4ed8">RJ Young Rookie of the Year, 2025</text>
 
-  <line x1="80" y1="390" x2="1120" y2="390" stroke="#e2ded6" stroke-width="2"/>
+  <line x1="80" y1="380" x2="1120" y2="380" stroke="#e2ded6" stroke-width="2"/>
 
-  <text x="80" y="455" font-family="Georgia, serif" font-size="46" font-weight="600" fill="#1d4ed8">456%</text>
-  <text x="80" y="490" font-family="Helvetica, Arial, sans-serif" font-size="20" fill="#7a736a">Q1 2025 quota</text>
+  <text x="80" y="447" font-family="Georgia, serif" font-size="44" font-weight="600" fill="#14120f">456%</text>
+  <text x="80" y="483" font-family="Helvetica, Arial, sans-serif" font-size="20" fill="#7a736a">Q1 2025 quota</text>
 
-  <text x="360" y="455" font-family="Georgia, serif" font-size="46" font-weight="600" fill="#1d4ed8">4 / 4</text>
-  <text x="360" y="490" font-family="Helvetica, Arial, sans-serif" font-size="20" fill="#7a736a">quarters over quota</text>
+  <text x="360" y="447" font-family="Georgia, serif" font-size="44" font-weight="600" fill="#14120f">4 / 4</text>
+  <text x="360" y="483" font-family="Helvetica, Arial, sans-serif" font-size="20" fill="#7a736a">quarters above quota</text>
 
-  <text x="700" y="455" font-family="Georgia, serif" font-size="46" font-weight="600" fill="#1d4ed8">#3</text>
-  <text x="700" y="490" font-family="Helvetica, Arial, sans-serif" font-size="20" fill="#7a736a">East Region, 2025</text>
+  <text x="720" y="447" font-family="Georgia, serif" font-size="44" font-weight="600" fill="#14120f">#3</text>
+  <text x="720" y="483" font-family="Helvetica, Arial, sans-serif" font-size="20" fill="#7a736a">East Region, 2025</text>
 
-  <text x="80" y="570" font-family="Helvetica, Arial, sans-serif" font-size="25"
+  <text x="80" y="565" font-family="Helvetica, Arial, sans-serif" font-size="25"
         fill="#14120f">noahjmoore23@gmail.com</text>
 </svg>
