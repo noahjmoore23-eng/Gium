@@ -1,0 +1,788 @@
+/* =========================================================================
+   Noah Moore — personal site
+   One stylesheet, no dependencies, no build step.
+
+   To restyle the whole site, change the tokens in :root below. Everything
+   else reads from them.
+   ========================================================================= */
+
+:root {
+  /* Type */
+  --font: ui-sans-serif, system-ui, -apple-system, 'Segoe UI', Roboto,
+    'Helvetica Neue', Arial, sans-serif;
+  --font-display: 'Iowan Old Style', 'Palatino Linotype', Palatino, Georgia,
+    'Times New Roman', serif;
+  --font-mono: ui-monospace, SFMono-Regular, 'SF Mono', Menlo, Consolas, monospace;
+
+  /* Light palette (default) */
+  --bg: #fbfaf8;
+  --bg-alt: #f2f0ec;
+  --surface: #ffffff;
+  --ink: #14120f;
+  --ink-2: #4a453d;
+  --ink-3: #7a736a;
+  --line: #e2ded6;
+  --line-2: #cfc9bf;
+  --accent: #1d4ed8;
+  --accent-ink: #ffffff;
+  --accent-soft: #e8edfb;
+
+  /* Layout */
+  --wrap: 68rem;
+  --pad: clamp(1.25rem, 4vw, 2.5rem);
+  --radius: 10px;
+  --shadow: 0 1px 2px rgb(20 18 15 / 6%), 0 8px 24px -12px rgb(20 18 15 / 14%);
+}
+
+/* Dark: follows the OS, or an explicit choice stamped on <html>. */
+@media (prefers-color-scheme: dark) {
+  :root:not([data-theme='light']) {
+    --bg: #100f0d;
+    --bg-alt: #171613;
+    --surface: #1c1b18;
+    --ink: #f4f1ec;
+    --ink-2: #bdb6ab;
+    --ink-3: #8b847a;
+    --line: #2c2a26;
+    --line-2: #3d3a34;
+    --accent: #8ab0ff;
+    --accent-ink: #0f1424;
+    --accent-soft: #1b2440;
+    --shadow: 0 1px 2px rgb(0 0 0 / 40%), 0 8px 28px -14px rgb(0 0 0 / 70%);
+  }
+}
+
+:root[data-theme='dark'] {
+  --bg: #100f0d;
+  --bg-alt: #171613;
+  --surface: #1c1b18;
+  --ink: #f4f1ec;
+  --ink-2: #bdb6ab;
+  --ink-3: #8b847a;
+  --line: #2c2a26;
+  --line-2: #3d3a34;
+  --accent: #8ab0ff;
+  --accent-ink: #0f1424;
+  --accent-soft: #1b2440;
+  --shadow: 0 1px 2px rgb(0 0 0 / 40%), 0 8px 28px -14px rgb(0 0 0 / 70%);
+}
+
+/* ---------------------------------------------------------------- reset */
+
+*,
+*::before,
+*::after {
+  box-sizing: border-box;
+}
+
+html {
+  scroll-behavior: smooth;
+  scroll-padding-top: 5rem;
+  -webkit-text-size-adjust: 100%;
+}
+
+@media (prefers-reduced-motion: reduce) {
+  html {
+    scroll-behavior: auto;
+  }
+  * {
+    animation: none !important;
+    transition: none !important;
+  }
+}
+
+body {
+  margin: 0;
+  font-family: var(--font);
+  font-size: 1rem;
+  line-height: 1.65;
+  color: var(--ink);
+  background: var(--bg);
+  -webkit-font-smoothing: antialiased;
+}
+
+h1,
+h2,
+h3 {
+  line-height: 1.15;
+  margin: 0 0 0.5em;
+  letter-spacing: -0.02em;
+  text-wrap: balance;
+}
+
+p {
+  margin: 0 0 1em;
+  text-wrap: pretty;
+}
+
+a {
+  color: var(--accent);
+  text-underline-offset: 3px;
+}
+
+a:focus-visible,
+button:focus-visible {
+  outline: 2px solid var(--accent);
+  outline-offset: 3px;
+  border-radius: 3px;
+}
+
+.skip {
+  position: absolute;
+  left: -9999px;
+}
+
+.skip:focus {
+  left: 1rem;
+  top: 1rem;
+  z-index: 100;
+  background: var(--surface);
+  padding: 0.6rem 1rem;
+  border-radius: var(--radius);
+  box-shadow: var(--shadow);
+}
+
+.wrap {
+  max-width: var(--wrap);
+  margin-inline: auto;
+  padding-inline: var(--pad);
+}
+
+/* ------------------------------------------------------------------ nav */
+
+.nav {
+  position: sticky;
+  top: 0;
+  z-index: 50;
+  background: color-mix(in srgb, var(--bg) 88%, transparent);
+  backdrop-filter: saturate(180%) blur(12px);
+  border-bottom: 1px solid transparent;
+  transition: border-color 0.2s ease;
+}
+
+.nav.scrolled {
+  border-bottom-color: var(--line);
+}
+
+.nav-inner {
+  display: flex;
+  align-items: center;
+  gap: 1.25rem;
+  min-height: 4rem;
+}
+
+.nav-name {
+  font-weight: 650;
+  letter-spacing: -0.02em;
+  color: var(--ink);
+  text-decoration: none;
+  font-size: 1.05rem;
+}
+
+.nav nav {
+  display: flex;
+  gap: 1.4rem;
+  margin-left: auto;
+  font-size: 0.9rem;
+}
+
+.nav nav a {
+  color: var(--ink-2);
+  text-decoration: none;
+  padding-block: 0.25rem;
+  border-bottom: 1.5px solid transparent;
+}
+
+.nav nav a:hover,
+.nav nav a.active {
+  color: var(--ink);
+  border-bottom-color: var(--accent);
+}
+
+.nav-actions {
+  display: flex;
+  align-items: center;
+  gap: 0.6rem;
+  margin-left: 1rem;
+}
+
+.theme {
+  font: inherit;
+  font-size: 1rem;
+  line-height: 1;
+  cursor: pointer;
+  color: var(--ink-2);
+  background: transparent;
+  border: 1px solid var(--line);
+  border-radius: 999px;
+  width: 2.1rem;
+  height: 2.1rem;
+  display: grid;
+  place-items: center;
+}
+
+.theme:hover {
+  color: var(--ink);
+  border-color: var(--line-2);
+}
+
+@media (max-width: 780px) {
+  .nav nav {
+    display: none;
+  }
+  .nav-actions {
+    margin-left: auto;
+  }
+}
+
+/* --------------------------------------------------------------- button */
+
+.btn {
+  display: inline-flex;
+  align-items: center;
+  justify-content: center;
+  gap: 0.5rem;
+  padding: 0.7rem 1.15rem;
+  font-size: 0.95rem;
+  font-weight: 550;
+  line-height: 1;
+  text-decoration: none;
+  color: var(--ink);
+  background: var(--surface);
+  border: 1px solid var(--line-2);
+  border-radius: var(--radius);
+  transition: transform 0.12s ease, border-color 0.15s ease, background 0.15s ease;
+}
+
+.btn:hover {
+  transform: translateY(-1px);
+  border-color: var(--ink-3);
+}
+
+.btn-primary {
+  color: var(--accent-ink);
+  background: var(--accent);
+  border-color: var(--accent);
+}
+
+.btn-primary:hover {
+  border-color: var(--accent);
+  filter: brightness(1.08);
+}
+
+.btn-ghost {
+  background: transparent;
+  color: var(--ink-2);
+}
+
+.btn-sm {
+  padding: 0.5rem 0.85rem;
+  font-size: 0.875rem;
+}
+
+.btn-lg {
+  padding: 0.9rem 1.5rem;
+  font-size: 1.02rem;
+}
+
+.cta-row {
+  display: flex;
+  flex-wrap: wrap;
+  gap: 0.65rem;
+  margin-top: 1.75rem;
+}
+
+/* ----------------------------------------------------------------- hero */
+
+.eyebrow {
+  font-size: 0.8rem;
+  font-weight: 600;
+  letter-spacing: 0.09em;
+  text-transform: uppercase;
+  color: var(--ink-3);
+  margin-bottom: 1rem;
+}
+
+.hero {
+  padding-block: clamp(3.5rem, 11vw, 7rem) clamp(2.5rem, 7vw, 4.5rem);
+}
+
+.hero h1 {
+  font-family: var(--font-display);
+  font-size: clamp(2.1rem, 6.2vw, 3.9rem);
+  font-weight: 600;
+  max-width: 20ch;
+  margin-bottom: 1.5rem;
+}
+
+.hero h1 em {
+  font-style: italic;
+  color: var(--accent);
+}
+
+.lede {
+  font-size: clamp(1.02rem, 1.9vw, 1.2rem);
+  color: var(--ink-2);
+  max-width: 60ch;
+}
+
+.lede strong {
+  color: var(--ink);
+  font-weight: 600;
+}
+
+/* -------------------------------------------------------------- numbers */
+
+.numbers {
+  border-block: 1px solid var(--line);
+  background: var(--bg-alt);
+  padding-block: clamp(1.75rem, 4vw, 2.5rem);
+}
+
+.grid-4 {
+  display: grid;
+  grid-template-columns: repeat(4, 1fr);
+  gap: clamp(1rem, 3vw, 2rem);
+}
+
+.grid-2 {
+  display: grid;
+  grid-template-columns: repeat(2, 1fr);
+  gap: clamp(1rem, 3vw, 1.75rem);
+}
+
+@media (max-width: 820px) {
+  .grid-4 {
+    grid-template-columns: repeat(2, 1fr);
+  }
+}
+
+@media (max-width: 540px) {
+  .grid-2 {
+    grid-template-columns: 1fr;
+  }
+}
+
+.stat {
+  display: flex;
+  flex-direction: column;
+  gap: 0.3rem;
+}
+
+.stat-value {
+  font-family: var(--font-display);
+  font-size: clamp(1.6rem, 3.6vw, 2.3rem);
+  font-weight: 600;
+  letter-spacing: -0.03em;
+  line-height: 1;
+  color: var(--ink);
+  font-variant-numeric: tabular-nums;
+}
+
+.stat-label {
+  font-size: 0.85rem;
+  line-height: 1.35;
+  color: var(--ink-3);
+}
+
+/* ------------------------------------------------------------- sections */
+
+.section {
+  padding-block: clamp(3rem, 8vw, 5.5rem);
+}
+
+.section.alt {
+  background: var(--bg-alt);
+  border-block: 1px solid var(--line);
+}
+
+.section h2 {
+  font-family: var(--font-display);
+  font-size: clamp(1.6rem, 3.6vw, 2.35rem);
+  font-weight: 600;
+  max-width: 24ch;
+}
+
+.section-note {
+  color: var(--ink-3);
+  max-width: 58ch;
+  margin-bottom: 2.5rem;
+}
+
+/* ------------------------------------------------------------- timeline */
+
+.timeline {
+  list-style: none;
+  margin: 0;
+  padding: 0;
+  border-left: 2px solid var(--line);
+}
+
+.timeline > li {
+  display: grid;
+  grid-template-columns: 14rem 1fr;
+  gap: 1.5rem;
+  padding: 0 0 2.75rem 1.75rem;
+  position: relative;
+}
+
+.timeline > li::before {
+  content: '';
+  position: absolute;
+  left: -7px;
+  top: 0.55rem;
+  width: 12px;
+  height: 12px;
+  border-radius: 999px;
+  background: var(--accent);
+  border: 2px solid var(--bg);
+}
+
+.timeline > li:last-child {
+  padding-bottom: 0;
+}
+
+.tl-meta {
+  display: flex;
+  flex-direction: column;
+  gap: 0.15rem;
+  padding-top: 0.15rem;
+}
+
+.tl-date {
+  font-family: var(--font-mono);
+  font-size: 0.8rem;
+  color: var(--ink-3);
+  letter-spacing: -0.01em;
+}
+
+.tl-co {
+  font-weight: 600;
+  color: var(--ink);
+}
+
+.tl-body h3 {
+  font-size: 1.15rem;
+  font-weight: 600;
+  margin-bottom: 0.35rem;
+}
+
+.tl-context {
+  color: var(--ink-3);
+  font-size: 0.92rem;
+  margin-bottom: 0.85rem;
+}
+
+.tl-body ul {
+  margin: 0;
+  padding-left: 1.1rem;
+  display: grid;
+  gap: 0.55rem;
+  color: var(--ink-2);
+}
+
+.tl-body li::marker {
+  color: var(--line-2);
+}
+
+.tl-body strong {
+  color: var(--ink);
+  font-weight: 620;
+}
+
+@media (max-width: 760px) {
+  .timeline > li {
+    grid-template-columns: 1fr;
+    gap: 0.65rem;
+  }
+  .tl-meta {
+    flex-direction: row;
+    align-items: baseline;
+    gap: 0.75rem;
+  }
+}
+
+/* ---------------------------------------------------------------- cards */
+
+.cards .card {
+  background: var(--surface);
+  border: 1px solid var(--line);
+  border-radius: var(--radius);
+  padding: 1.4rem 1.35rem;
+  box-shadow: var(--shadow);
+}
+
+.card-num {
+  font-family: var(--font-mono);
+  font-size: 0.78rem;
+  color: var(--accent);
+  letter-spacing: 0.05em;
+}
+
+.card h3 {
+  font-size: 1.05rem;
+  font-weight: 620;
+  margin: 0.6rem 0 0.5rem;
+}
+
+.card p {
+  margin: 0;
+  font-size: 0.93rem;
+  color: var(--ink-2);
+}
+
+@media (max-width: 1000px) {
+  .cards.grid-4 {
+    grid-template-columns: repeat(2, 1fr);
+  }
+}
+
+@media (max-width: 620px) {
+  .cards.grid-4 {
+    grid-template-columns: 1fr;
+  }
+}
+
+/* ----------------------------------------------------------- case study */
+
+.case {
+  display: grid;
+  grid-template-columns: 1fr 20rem;
+  gap: clamp(1.5rem, 4vw, 3rem);
+  align-items: start;
+  margin-top: 1.5rem;
+}
+
+.case-body p {
+  color: var(--ink-2);
+  max-width: 62ch;
+}
+
+.case-why {
+  border-left: 3px solid var(--accent);
+  background: var(--accent-soft);
+  padding: 1rem 1.15rem;
+  border-radius: 0 var(--radius) var(--radius) 0;
+  color: var(--ink-2) !important;
+}
+
+.case-facts {
+  background: var(--surface);
+  border: 1px solid var(--line);
+  border-radius: var(--radius);
+  padding: 1.35rem;
+  box-shadow: var(--shadow);
+  position: sticky;
+  top: 5.5rem;
+}
+
+.case-facts h3 {
+  font-size: 0.78rem;
+  font-weight: 600;
+  letter-spacing: 0.09em;
+  text-transform: uppercase;
+  color: var(--ink-3);
+  margin-bottom: 1rem;
+}
+
+.case-facts dl {
+  margin: 0;
+  display: grid;
+  gap: 0.75rem;
+}
+
+.case-facts dl > div {
+  display: grid;
+  gap: 0.1rem;
+}
+
+.case-facts dt {
+  font-size: 0.82rem;
+  color: var(--ink-3);
+}
+
+.case-facts dd {
+  margin: 0;
+  font-size: 0.92rem;
+  color: var(--ink);
+  line-height: 1.4;
+}
+
+@media (max-width: 900px) {
+  .case {
+    grid-template-columns: 1fr;
+  }
+  .case-facts {
+    position: static;
+  }
+}
+
+/* ------------------------------------------------------ about / toolkit */
+
+.two-col {
+  display: grid;
+  grid-template-columns: 1.15fr 1fr;
+  gap: clamp(2rem, 6vw, 4rem);
+  align-items: start;
+}
+
+.two-col p {
+  color: var(--ink-2);
+  max-width: 55ch;
+}
+
+@media (max-width: 860px) {
+  .two-col {
+    grid-template-columns: 1fr;
+  }
+}
+
+.tk-head {
+  font-size: 0.78rem;
+  font-weight: 600;
+  letter-spacing: 0.09em;
+  text-transform: uppercase;
+  color: var(--ink-3);
+  margin: 1.6rem 0 0.7rem;
+}
+
+.tk-head:first-of-type {
+  margin-top: 0.5rem;
+}
+
+.tags {
+  list-style: none;
+  display: flex;
+  flex-wrap: wrap;
+  gap: 0.4rem;
+  margin: 0;
+  padding: 0;
+}
+
+.tags li {
+  font-size: 0.85rem;
+  color: var(--ink-2);
+  background: var(--surface);
+  border: 1px solid var(--line);
+  border-radius: 999px;
+  padding: 0.32rem 0.75rem;
+}
+
+/* --------------------------------------------------------------- quotes */
+
+.quote {
+  margin: 0;
+  background: var(--surface);
+  border: 1px solid var(--line);
+  border-radius: var(--radius);
+  padding: 1.5rem;
+  box-shadow: var(--shadow);
+}
+
+.quote p {
+  font-family: var(--font-display);
+  font-size: 1.08rem;
+  line-height: 1.55;
+  color: var(--ink);
+  margin-bottom: 1rem;
+}
+
+.quote footer {
+  font-size: 0.85rem;
+  color: var(--ink-3);
+}
+
+/* -------------------------------------------------------------- contact */
+
+.contact {
+  padding-block: clamp(3.5rem, 9vw, 6rem);
+  border-top: 1px solid var(--line);
+  background: var(--bg-alt);
+}
+
+.contact h2 {
+  font-family: var(--font-display);
+  font-size: clamp(1.8rem, 4.5vw, 2.8rem);
+  font-weight: 600;
+}
+
+/* --------------------------------------------------------------- footer */
+
+.foot {
+  border-top: 1px solid var(--line);
+  padding-block: 1.5rem;
+  font-size: 0.86rem;
+  color: var(--ink-3);
+}
+
+.foot-inner {
+  display: flex;
+  flex-wrap: wrap;
+  gap: 1rem;
+  justify-content: space-between;
+}
+
+.foot-links {
+  display: flex;
+  gap: 1.15rem;
+}
+
+.foot-links a {
+  color: var(--ink-3);
+  text-decoration: none;
+}
+
+.foot-links a:hover {
+  color: var(--ink);
+  text-decoration: underline;
+}
+
+/* ---------------------------------------------------------------- print */
+/* Ctrl-P gives a clean one-pager a recruiter can keep. */
+
+@media print {
+  :root {
+    --bg: #fff;
+    --bg-alt: #fff;
+    --surface: #fff;
+    --ink: #000;
+    --ink-2: #222;
+    --ink-3: #555;
+    --line: #ccc;
+    --accent: #000;
+    --shadow: none;
+  }
+
+  .nav,
+  .theme,
+  .cta-row,
+  .skip,
+  .foot-links {
+    display: none !important;
+  }
+
+  body {
+    font-size: 11pt;
+  }
+
+  .section,
+  .hero,
+  .contact {
+    padding-block: 1rem;
+    break-inside: avoid;
+  }
+
+  .section.alt,
+  .contact,
+  .numbers {
+    border: 0;
+  }
+
+  a {
+    text-decoration: none;
+  }
+
+  .case {
+    grid-template-columns: 1fr;
+  }
+}

@@ -1,0 +1,14 @@
+<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 1200 630" width="1200" height="630">
+  <rect width="1200" height="630" fill="#fbfaf8"/>
+  <rect x="0" y="0" width="1200" height="8" fill="#1d4ed8"/>
+  <text x="80" y="250" font-family="Georgia, 'Times New Roman', serif" font-size="86"
+        font-weight="600" fill="#14120f" letter-spacing="-2">Noah Moore</text>
+  <text x="80" y="330" font-family="Helvetica, Arial, sans-serif" font-size="38"
+        fill="#4a453d">Sales</text>
+  <text x="80" y="430" font-family="Helvetica, Arial, sans-serif" font-size="30"
+        fill="#7a736a">Pipeline built from scratch. Quota carried and beaten.</text>
+  <text x="80" y="478" font-family="Helvetica, Arial, sans-serif" font-size="30"
+        fill="#7a736a">And the operations knowledge behind what I sell.</text>
+  <text x="80" y="565" font-family="Helvetica, Arial, sans-serif" font-size="26"
+        fill="#1d4ed8">noahjmoore23@gmail.com</text>
+</svg>

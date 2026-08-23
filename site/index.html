@@ -1,0 +1,443 @@
+<!doctype html>
+<html lang="en">
+  <head>
+    <meta charset="utf-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1" />
+
+    <!-- EDIT: title + description are what Google and LinkedIn previews show. -->
+    <title>Noah Moore — Sales</title>
+    <meta
+      name="description"
+      content="Noah Moore — sales professional. Pipeline built from scratch, quota carried and beaten, and a working knowledge of the operations behind the products I sell."
+    />
+    <link rel="canonical" href="https://noahjmoore23-eng.github.io/gium/" />
+
+    <!-- Link previews (LinkedIn, iMessage, Slack) -->
+    <meta property="og:type" content="profile" />
+    <meta property="og:title" content="Noah Moore — Sales" />
+    <meta
+      property="og:description"
+      content="Sales professional. Pipeline built from scratch, quota carried and beaten, and a working knowledge of the operations behind the products I sell."
+    />
+    <!-- EDIT: og:image must be an absolute URL. Update the domain if you move hosts. -->
+    <meta
+      property="og:image"
+      content="https://noahjmoore23-eng.github.io/gium/assets/og.png"
+    />
+    <meta name="twitter:card" content="summary_large_image" />
+
+    <link rel="icon" type="image/svg+xml" href="assets/favicon.svg" />
+    <link rel="stylesheet" href="styles.css" />
+
+    <!-- Applies the saved theme before first paint so the page never flashes. -->
+    <script>
+      try {
+        var t = localStorage.getItem('theme');
+        if (t === 'dark' || t === 'light')
+          document.documentElement.setAttribute('data-theme', t);
+      } catch {}
+    </script>
+  </head>
+
+  <body>
+    <a class="skip" href="#main">Skip to content</a>
+
+    <header class="nav" id="nav">
+      <div class="wrap nav-inner">
+        <a class="nav-name" href="#top">Noah Moore</a>
+        <nav aria-label="Sections">
+          <a href="#record">Record</a>
+          <a href="#method">How I sell</a>
+          <a href="#gium">Case study</a>
+          <a href="#about">About</a>
+        </nav>
+        <div class="nav-actions">
+          <button
+            class="theme"
+            type="button"
+            id="theme-toggle"
+            aria-label="Switch color theme"
+          >
+            <span aria-hidden="true">◐</span>
+          </button>
+          <!-- EDIT: your email. Used by every "get in touch" link on the page. -->
+          <a class="btn btn-sm" href="mailto:noahjmoore23@gmail.com">Get in touch</a>
+        </div>
+      </div>
+    </header>
+
+    <main id="main">
+      <!-- ================= HERO ================= -->
+      <section class="hero" id="top">
+        <div class="wrap">
+          <p class="eyebrow">Sales &middot; <!-- EDIT: your city --> Open to relocation</p>
+
+          <!-- EDIT: the headline. Say what you sell and to whom, not "results-driven professional". -->
+          <h1>
+            I sell by learning the customer&rsquo;s <em>operation</em> before I pitch
+            the product.
+          </h1>
+
+          <p class="lede">
+            <!-- EDIT: 2–3 sentences. Who you sell to, what you've closed, what you're looking for. -->
+            I&rsquo;m a sales professional with a track record of building pipeline from
+            a cold list and carrying it through to signature. My edge is
+            preparation: I go deep enough on how a prospect actually runs their
+            business that the demo stops being a feature tour and starts being a
+            conversation about their numbers. I&rsquo;m looking for a
+            <strong>[target role]</strong> seat at a company selling into
+            <strong>[target market]</strong>.
+          </p>
+
+          <div class="cta-row">
+            <a class="btn btn-primary" href="mailto:noahjmoore23@gmail.com"
+              >Email me</a
+            >
+            <!-- EDIT: replace with your real LinkedIn URL. -->
+            <a class="btn" href="https://www.linkedin.com/in/" rel="noopener">LinkedIn</a>
+            <!-- EDIT: drop resume.pdf into site/assets/ and this link works. -->
+            <a class="btn btn-ghost" href="assets/resume.pdf">Résumé (PDF)</a>
+          </div>
+        </div>
+      </section>
+
+      <!-- ================= NUMBERS ================= -->
+      <!-- EDIT: four numbers a hiring manager can scan in five seconds.
+           Replace every one of these with real figures — an unfilled number
+           is worse than no number at all. -->
+      <section class="numbers" aria-label="Key results">
+        <div class="wrap grid-4">
+          <div class="stat">
+            <span class="stat-value">[###]%</span>
+            <span class="stat-label">of quota, most recent full year</span>
+          </div>
+          <div class="stat">
+            <span class="stat-value">$[#.#]M</span>
+            <span class="stat-label">closed-won, career to date</span>
+          </div>
+          <div class="stat">
+            <span class="stat-value">[##]</span>
+            <span class="stat-label">new logos landed</span>
+          </div>
+          <div class="stat">
+            <span class="stat-value">[##] days</span>
+            <span class="stat-label">average cycle, first call to signature</span>
+          </div>
+        </div>
+      </section>
+
+      <!-- ================= TRACK RECORD ================= -->
+      <section class="section" id="record">
+        <div class="wrap">
+          <h2>Track record</h2>
+          <p class="section-note">
+            Each role below leads with the result, not the responsibility.
+            <!-- EDIT: replace the three entries with your real roles. Keep the shape:
+                 one line of context, then bullets that each contain a number. -->
+          </p>
+
+          <ol class="timeline">
+            <li>
+              <div class="tl-meta">
+                <span class="tl-date">[Year] – Present</span>
+                <span class="tl-co">[Company]</span>
+              </div>
+              <div class="tl-body">
+                <h3>[Job title]</h3>
+                <p class="tl-context">
+                  [One line: what the company sells, to whom, at what deal size.]
+                </p>
+                <ul>
+                  <li>
+                    Closed <strong>$[amount]</strong> across <strong>[n]</strong>
+                    accounts, finishing at <strong>[###]%</strong> of a
+                    $[quota] number.
+                  </li>
+                  <li>
+                    Built <strong>[n]</strong> qualified opportunities from
+                    outbound with no inbound support — [what you did that others
+                    weren&rsquo;t doing].
+                  </li>
+                  <li>
+                    Cut average sales cycle from [n] to [n] days by
+                    [the specific change you made].
+                  </li>
+                </ul>
+              </div>
+            </li>
+
+            <li>
+              <div class="tl-meta">
+                <span class="tl-date">[Year] – [Year]</span>
+                <span class="tl-co">[Company]</span>
+              </div>
+              <div class="tl-body">
+                <h3>[Job title]</h3>
+                <p class="tl-context">[One line of context.]</p>
+                <ul>
+                  <li>[Result with a number.]</li>
+                  <li>[Result with a number.]</li>
+                </ul>
+              </div>
+            </li>
+
+            <li>
+              <div class="tl-meta">
+                <span class="tl-date">[Year] – [Year]</span>
+                <span class="tl-co">[Company]</span>
+              </div>
+              <div class="tl-body">
+                <h3>[Job title]</h3>
+                <p class="tl-context">[One line of context.]</p>
+                <ul>
+                  <li>[Result with a number.]</li>
+                </ul>
+              </div>
+            </li>
+          </ol>
+        </div>
+      </section>
+
+      <!-- ================= METHOD ================= -->
+      <section class="section alt" id="method">
+        <div class="wrap">
+          <h2>How I sell</h2>
+          <p class="section-note">
+            Most sales sites list adjectives. This is the actual sequence I run,
+            so a sales leader can tell in one read whether it matches their motion.
+            <!-- EDIT: rewrite these four cards in your own words and your own process. -->
+          </p>
+
+          <div class="grid-4 cards">
+            <article class="card">
+              <span class="card-num">01</span>
+              <h3>Research the operation</h3>
+              <p>
+                Before the first call I know how the prospect makes money, where
+                the margin leaks, and which metric their boss asks about on
+                Monday. Discovery should confirm a hypothesis, not start from
+                zero.
+              </p>
+            </article>
+            <article class="card">
+              <span class="card-num">02</span>
+              <h3>Qualify honestly</h3>
+              <p>
+                Pain, budget, decision process, and a compelling reason to act
+                this quarter. If one of the four is missing I say so out loud and
+                either fix it or move on — a clean no beats a slow maybe.
+              </p>
+            </article>
+            <article class="card">
+              <span class="card-num">03</span>
+              <h3>Sell the number, not the feature</h3>
+              <p>
+                Every demo maps back to a figure the buyer already tracks. I&rsquo;d
+                rather show one screen that changes their cost per job than ten
+                that are merely impressive.
+              </p>
+            </article>
+            <article class="card">
+              <span class="card-num">04</span>
+              <h3>Close on a plan</h3>
+              <p>
+                Mutual action plan, named signer, dated steps, and the objection
+                surfaced early instead of on the last call. Forecast accuracy is
+                a skill, and I treat it like one.
+              </p>
+            </article>
+          </div>
+        </div>
+      </section>
+
+      <!-- ================= CASE STUDY: GIUM ================= -->
+      <section class="section" id="gium">
+        <div class="wrap">
+          <p class="eyebrow">Case study</p>
+          <h2>Gium — I built the software for the industry I sell into</h2>
+
+          <div class="case">
+            <div class="case-body">
+              <p>
+                Moving companies lose money in two predictable places: quotes
+                that miss and crews that idle. An estimator eyeballs a
+                three-bedroom house and guesses low, so two movers get sent on a
+                job that needed four, the crew runs into overtime, and the hourly
+                minimum never covers it. Meanwhile the dispatcher works off a
+                whiteboard and double-books a truck.
+              </p>
+              <p>
+                <strong>Gium is my answer to both.</strong> It&rsquo;s a working web
+                app: a room-by-room cube sheet with 82 standard carrier items
+                that converts an inventory into packed volume, shipment weight,
+                recommended crew size, the smallest truck that fits, and a
+                phase-by-phase hour breakdown. It prices off a single rate card —
+                hourly against a minimum under 100 miles, weight-based line haul
+                plus mileage and fuel past that, the way an interstate move is
+                actually tariffed. Quoted jobs land on a week board that flags a
+                mover on two overlapping jobs, a double-booked truck, or a job
+                understaffed against its own estimate.
+              </p>
+              <p class="case-why">
+                <strong>Why it belongs on a sales résumé:</strong> it&rsquo;s proof I
+                do the homework. I can sit across from an operations manager and
+                talk cube sheets, access penalties, tariffs, and utilization
+                without reaching for a script — because I modeled all of it.
+                That&rsquo;s the same preparation I bring to a territory.
+              </p>
+
+              <div class="cta-row">
+                <!-- EDIT: once you deploy Gium (Netlify/Vercel, ~2 min), put the
+                     live URL here. A hiring manager clicking a working demo is
+                     worth far more than one clicking source code. -->
+                <a
+                  class="btn btn-primary"
+                  href="https://github.com/noahjmoore23-eng/gium#readme"
+                  rel="noopener"
+                  >See the app</a
+                >
+                <a
+                  class="btn"
+                  href="https://github.com/noahjmoore23-eng/gium"
+                  rel="noopener"
+                  >Source on GitHub</a
+                >
+              </div>
+            </div>
+
+            <aside class="case-facts">
+              <h3>What&rsquo;s under it</h3>
+              <dl>
+                <div><dt>Cube sheet</dt><dd>82 items, standard carrier volumes</dd></div>
+                <div><dt>Weight model</dt><dd>7 lbs per cubic foot</dd></div>
+                <div><dt>Labor model</dt><dd>110 cu ft / mover-hour loading, 140 unloading</dd></div>
+                <div><dt>Access penalties</dt><dd>Stairs, elevator, long carry, shuttle</dd></div>
+                <div><dt>Pricing</dt><dd>Local hourly vs. long-distance line haul</dd></div>
+                <div><dt>Dispatch</dt><dd>Overlap, double-booking, hour-cap detection</dd></div>
+                <div><dt>Tests</dt><dd>67 covering pricing and scheduling rules</dd></div>
+              </dl>
+            </aside>
+          </div>
+        </div>
+      </section>
+
+      <!-- ================= ABOUT + TOOLKIT ================= -->
+      <section class="section alt" id="about">
+        <div class="wrap two-col">
+          <div>
+            <h2>About</h2>
+            <!-- EDIT: your real story. Three short paragraphs beats one long one. -->
+            <p>
+              [Where you started and how you got into sales — one paragraph, in
+              plain language. Hiring managers read this to hear your voice, so
+              write it the way you&rsquo;d say it.]
+            </p>
+            <p>
+              [What you&rsquo;re good at that doesn&rsquo;t fit in a bullet: the kind of
+              deal you win, the kind of buyer you connect with, what teammates
+              come to you for.]
+            </p>
+            <p>
+              [What you want next, and why. Be specific — "a mid-market AE seat
+              selling operations software" lands harder than "a growth
+              opportunity".]
+            </p>
+          </div>
+
+          <div>
+            <h2>Toolkit</h2>
+            <!-- EDIT: keep only what you've genuinely used. Padding this list is
+                 the fastest way to get caught in an interview. -->
+            <h3 class="tk-head">CRM &amp; pipeline</h3>
+            <ul class="tags">
+              <li>Salesforce</li>
+              <li>HubSpot</li>
+              <li>Pipedrive</li>
+              <li>Forecasting &amp; pipeline hygiene</li>
+            </ul>
+
+            <h3 class="tk-head">Prospecting</h3>
+            <ul class="tags">
+              <li>Outbound sequencing</li>
+              <li>Cold calling</li>
+              <li>LinkedIn Sales Navigator</li>
+              <li>Territory planning</li>
+            </ul>
+
+            <h3 class="tk-head">Method</h3>
+            <ul class="tags">
+              <li>Discovery</li>
+              <li>Multi-threading</li>
+              <li>Mutual action plans</li>
+              <li>Negotiation &amp; closing</li>
+            </ul>
+
+            <h3 class="tk-head">Domain</h3>
+            <ul class="tags">
+              <li>Moving &amp; logistics operations</li>
+              <li>Dispatch &amp; scheduling</li>
+              <li>Tariffs &amp; rate cards</li>
+            </ul>
+          </div>
+        </div>
+      </section>
+
+      <!-- ================= REFERENCES ================= -->
+      <section class="section" id="references">
+        <div class="wrap">
+          <h2>What people say</h2>
+          <!-- EDIT: two real quotes from a manager, a teammate, or a customer.
+               Ask for them by email — most people say yes. If you don't have
+               them yet, delete this whole section rather than leaving brackets. -->
+          <div class="grid-2">
+            <blockquote class="quote">
+              <p>
+                &ldquo;[One or two sentences from a manager or customer about
+                what you actually did for them.]&rdquo;
+              </p>
+              <footer>[Name], [Title] at [Company]</footer>
+            </blockquote>
+            <blockquote class="quote">
+              <p>&ldquo;[Second quote.]&rdquo;</p>
+              <footer>[Name], [Title] at [Company]</footer>
+            </blockquote>
+          </div>
+        </div>
+      </section>
+
+      <!-- ================= CONTACT ================= -->
+      <section class="contact" id="contact">
+        <div class="wrap">
+          <h2>Let&rsquo;s talk</h2>
+          <p class="lede">
+            If you&rsquo;re hiring for a sales seat and want someone who shows up
+            already knowing your business, I&rsquo;d like to hear about it. Fastest
+            way to reach me is email — I answer the same day.
+          </p>
+          <div class="cta-row">
+            <a class="btn btn-primary btn-lg" href="mailto:noahjmoore23@gmail.com"
+              >noahjmoore23@gmail.com</a
+            >
+            <a class="btn btn-lg" href="https://www.linkedin.com/in/" rel="noopener"
+              >LinkedIn</a
+            >
+            <!-- EDIT: add your phone if you want inbound calls. -->
+          </div>
+        </div>
+      </section>
+    </main>
+
+    <footer class="foot">
+      <div class="wrap foot-inner">
+        <span>&copy; <span id="year">2026</span> Noah Moore</span>
+        <span class="foot-links">
+          <a href="mailto:noahjmoore23@gmail.com">Email</a>
+          <a href="https://www.linkedin.com/in/" rel="noopener">LinkedIn</a>
+          <a href="https://github.com/noahjmoore23-eng" rel="noopener">GitHub</a>
+        </span>
+      </div>
+    </footer>
+
+    <script src="main.js"></script>
+  </body>
+</html>
