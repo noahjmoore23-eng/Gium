@@ -32,6 +32,9 @@
   --pad: clamp(1.25rem, 4vw, 2.5rem);
   --radius: 10px;
   --shadow: 0 1px 2px rgb(20 18 15 / 6%), 0 8px 24px -12px rgb(20 18 15 / 14%);
+
+  /* Also tells the browser which way to paint scrollbars and native UI. */
+  color-scheme: light;
 }
 
 /* Dark: follows the OS, or an explicit choice stamped on <html>. */
@@ -49,10 +52,12 @@
     --accent-ink: #0f1424;
     --accent-soft: #191c28;
     --shadow: 0 1px 2px rgb(0 0 0 / 40%), 0 8px 28px -14px rgb(0 0 0 / 70%);
+    color-scheme: dark;
   }
 }
 
 :root[data-theme='dark'] {
+  color-scheme: dark;
   --bg: #100f0d;
   --bg-alt: #171613;
   --surface: #1c1b18;
@@ -133,6 +138,7 @@ button:focus-visible {
 }
 
 .skip:focus {
+  position: fixed;
   left: 1rem;
   top: 1rem;
   z-index: 100;
@@ -154,7 +160,12 @@ button:focus-visible {
   position: sticky;
   top: 0;
   z-index: 50;
-  background: color-mix(in srgb, var(--bg) 88%, transparent);
+  /* Opaque first: color-mix is dropped wholesale by browsers that lack it,
+     which would otherwise leave the header transparent and let the headline
+     render straight through it. */
+  background: var(--bg);
+  background: color-mix(in srgb, var(--bg) 97%, transparent);
+  -webkit-backdrop-filter: saturate(180%) blur(12px);
   backdrop-filter: saturate(180%) blur(12px);
   border-bottom: 1px solid transparent;
   transition: border-color 0.2s ease;
@@ -207,6 +218,7 @@ button:focus-visible {
 }
 
 .theme {
+  display: none;
   font: inherit;
   font-size: 1rem;
   line-height: 1;
@@ -217,13 +229,24 @@ button:focus-visible {
   border-radius: 999px;
   width: 2.1rem;
   height: 2.1rem;
-  display: grid;
   place-items: center;
+}
+
+.js .theme {
+  display: grid;
 }
 
 .theme:hover {
   color: var(--ink);
   border-color: var(--line-2);
+}
+
+/* On a very short viewport — landscape phone, or 400% zoom — a sticky header
+   eats a third of the screen. Let it scroll away instead. */
+@media (max-height: 480px) {
+  .nav {
+    position: static;
+  }
 }
 
 @media (max-width: 780px) {
@@ -239,6 +262,8 @@ button:focus-visible {
 
 .btn {
   display: inline-flex;
+  max-width: 100%;
+  overflow-wrap: anywhere;
   align-items: center;
   justify-content: center;
   gap: 0.5rem;
@@ -313,11 +338,6 @@ button:focus-visible {
   font-weight: 600;
   max-width: 20ch;
   margin-bottom: 1.5rem;
-}
-
-.hero h1 em {
-  font-style: italic;
-  color: var(--accent);
 }
 
 .lede {
@@ -495,6 +515,11 @@ button:focus-visible {
   flex-direction: column;
   gap: 0.15rem;
   padding-top: 0.15rem;
+}
+
+.tl-meta > * {
+  min-width: 0;
+  overflow-wrap: anywhere;
 }
 
 .tl-date {
@@ -693,7 +718,10 @@ button:focus-visible {
 /* Ctrl-P gives a clean one-pager a recruiter can keep. */
 
 @media print {
-  :root {
+  /* :root:root, not :root — a bare :root is specificity (0,1,0) and loses to
+     :root[data-theme='dark'] and :root:not([data-theme='light']), so a visitor
+     in dark mode would otherwise print the dark palette onto white paper. */
+  :root:root {
     --bg: #fff;
     --bg-alt: #fff;
     --surface: #fff;
@@ -701,16 +729,23 @@ button:focus-visible {
     --ink-2: #222;
     --ink-3: #555;
     --line: #ccc;
+    --line-2: #999;
     --accent: #000;
+    --accent-ink: #fff;
+    --accent-soft: #fff;
     --shadow: none;
   }
 
   .nav,
   .theme,
-  .cta-row,
   .skip,
-  .foot-links {
+  .foot-links,
+  .hero .cta-row {
     display: none !important;
+  }
+
+  .print-head {
+    display: block !important;
   }
 
   body {
@@ -721,7 +756,22 @@ button:focus-visible {
   .hero,
   .contact {
     padding-block: 1rem;
+  }
+
+  /* Keep the small blocks whole. A whole section is taller than a sheet, so
+     break-inside there only pushes it to the next page and leaves the rest of
+     the current one blank. */
+  .card,
+  .feature,
+  .timeline > li,
+  .stat,
+  .edu > div {
     break-inside: avoid;
+  }
+
+  h2,
+  h3 {
+    break-after: avoid;
   }
 
   .section.alt,
@@ -730,10 +780,27 @@ button:focus-visible {
     border: 0;
   }
 
+  /* The contact buttons carry the email address and phone number — print them
+     as text rather than as empty boxes. */
+  .contact .btn {
+    border: 0;
+    padding: 0;
+    margin-right: 1.25rem;
+    font-size: 11pt;
+    background: transparent !important;
+    color: #000 !important;
+  }
+
   a {
     text-decoration: none;
   }
 }
+
+/* Printed contact header — hidden on screen. */
+.print-head {
+  display: none;
+}
+
 
 /* --------------------------------------------------- timeline location */
 

@@ -1,5 +1,5 @@
 /* Noah Moore — personal site.
-   Three small things: theme toggle, nav state, and the footer year.
+   Two small things: the theme toggle and the nav's active state.
    No dependencies, no build step. */
 
 (function () {
@@ -21,10 +21,24 @@
       : 'light';
   }
 
+  /* Without this a screen reader user cannot tell which theme is active, or
+     that pressing the button changed anything. */
+  function syncToggle() {
+    toggle.setAttribute(
+      'aria-pressed',
+      currentTheme() === 'dark' ? 'true' : 'false'
+    );
+  }
+
   if (toggle) {
+    /* The inline head script runs before this button exists, so the initial
+       pressed state has to be set here. */
+    syncToggle();
+
     toggle.addEventListener('click', function () {
       var next = currentTheme() === 'dark' ? 'light' : 'dark';
       root.setAttribute('data-theme', next);
+      syncToggle();
       try {
         localStorage.setItem('theme', next);
       } catch {
@@ -63,16 +77,28 @@
       sections.push(section);
     });
 
+    var visible = Object.create(null);
+
     var observer = new IntersectionObserver(
       function (entries) {
         entries.forEach(function (entry) {
-          if (!entry.isIntersecting) return;
-          links.forEach(function (l) {
-            l.classList.remove('active');
-          });
-          var link = byId[entry.target.id];
-          if (link) link.classList.add('active');
+          if (entry.isIntersecting) visible[entry.target.id] = true;
+          else delete visible[entry.target.id];
         });
+
+        links.forEach(function (l) {
+          l.classList.remove('active');
+        });
+
+        /* First section in document order wins, so two sections straddling the
+           band can't fight over the underline. */
+        for (var i = 0; i < sections.length; i++) {
+          if (visible[sections[i].id]) {
+            var link = byId[sections[i].id];
+            if (link) link.classList.add('active');
+            break;
+          }
+        }
       },
       { rootMargin: '-45% 0px -50% 0px' }
     );
@@ -82,8 +108,4 @@
     });
   }
 
-  /* ----------------------------------------------------------- year --- */
-
-  var year = document.getElementById('year');
-  if (year) year.textContent = String(new Date().getFullYear());
 })();

@@ -7,7 +7,7 @@
     <title>Noah Moore — Account Executive</title>
     <meta
       name="description"
-      content="Noah Moore, account executive at RJ Young. 2025 Rookie of the Year, above quota in all four quarters, and third in sales performance across the East Region."
+      content="Account executive at RJ Young. 2025 Rookie of the Year, above quota in all four quarters, and third in sales performance across the East Region."
     />
     <link rel="canonical" href="https://noahjmoore23-eng.github.io/Gium/" />
 
@@ -32,16 +32,86 @@
     />
     <meta name="twitter:card" content="summary_large_image" />
 
+    <script type="application/ld+json">
+      {
+        "@context": "https://schema.org",
+        "@type": "Person",
+        "name": "Noah Moore",
+        "givenName": "Noah",
+        "familyName": "Moore",
+        "url": "https://noahjmoore23-eng.github.io/Gium/",
+        "image": "https://noahjmoore23-eng.github.io/Gium/assets/og.png",
+        "email": "mailto:noahjmoore23@gmail.com",
+        "telephone": "+1-205-861-5900",
+        "jobTitle": "Account Executive",
+        "description": "Account executive at RJ Young. 2025 Rookie of the Year, above quota in all four quarters of 2025, and third in sales performance across the East Region.",
+        "worksFor": {
+          "@type": "Organization",
+          "name": "RJ Young"
+        },
+        "address": {
+          "@type": "PostalAddress",
+          "addressLocality": "Chattanooga",
+          "addressRegion": "TN",
+          "addressCountry": "US"
+        },
+        "alumniOf": [
+          {
+            "@type": "CollegeOrUniversity",
+            "name": "University of Alabama"
+          },
+          {
+            "@type": "CollegeOrUniversity",
+            "name": "Shelton State Community College"
+          }
+        ],
+        "hasCredential": [
+          {
+            "@type": "EducationalOccupationalCredential",
+            "credentialCategory": "degree",
+            "name": "M.S., Family Financial Planning, University of Alabama"
+          },
+          {
+            "@type": "EducationalOccupationalCredential",
+            "credentialCategory": "degree",
+            "name": "B.S., Finance, University of Alabama"
+          },
+          {
+            "@type": "EducationalOccupationalCredential",
+            "credentialCategory": "certificate",
+            "name": "CFI Financial Modeling & Valuation Analyst (FMVA)"
+          },
+          {
+            "@type": "EducationalOccupationalCredential",
+            "credentialCategory": "certificate",
+            "name": "Bloomberg Market Concepts"
+          }
+        ],
+        "award": [
+          "RJ Young Rookie of the Year, 2025",
+          "President's Club, 2025",
+          "Million Dollar Producer, 2025 (one of 33)"
+        ],
+        "sameAs": [
+          "https://www.linkedin.com/in/noah-moore-09a7151bb/"
+        ]
+      }
+    </script>
+
+    <meta name="theme-color" content="#fbfaf8" media="(prefers-color-scheme: light)" />
+    <meta name="theme-color" content="#100f0d" media="(prefers-color-scheme: dark)" />
+
     <link rel="icon" type="image/svg+xml" href="assets/favicon.svg" />
     <link rel="stylesheet" href="styles.css" />
 
     <!-- Applies the saved theme before first paint so the page never flashes. -->
     <script>
+      document.documentElement.classList.add('js');
       try {
         var t = localStorage.getItem('theme');
         if (t === 'dark' || t === 'light')
           document.documentElement.setAttribute('data-theme', t);
-      } catch {}
+      } catch (e) {}
     </script>
   </head>
 
@@ -62,7 +132,8 @@
             class="theme"
             type="button"
             id="theme-toggle"
-            aria-label="Switch color theme"
+            aria-pressed="false"
+            aria-label="Dark theme"
           >
             <span aria-hidden="true">◐</span>
           </button>
@@ -71,7 +142,12 @@
       </div>
     </header>
 
-    <main id="main">
+    <main id="main" tabindex="-1">
+      <p class="print-head">
+        <strong>Noah Moore</strong> &middot; Account Executive &middot;
+        Chattanooga, TN &middot; noahjmoore23@gmail.com &middot; (205) 861-5900
+        &middot; linkedin.com/in/noah-moore-09a7151bb
+      </p>
       <!-- ================= HERO ================= -->
       <section class="hero" id="top">
         <div class="wrap">
@@ -95,7 +171,7 @@
             <a class="btn btn-primary" href="mailto:noahjmoore23@gmail.com"
               >Email me</a
             >
-            <a class="btn" href="https://www.linkedin.com/in/noah-moore-09a7151bb/" rel="noopener">LinkedIn</a>
+            <a class="btn" href="https://www.linkedin.com/in/noah-moore-09a7151bb/" target="_blank" rel="noopener">LinkedIn</a>
             <!-- Serves docs/assets/resume.pdf — replace that file to update it. -->
             <a class="btn btn-ghost" href="assets/resume.pdf">Résumé (PDF)</a>
           </div>
@@ -407,7 +483,7 @@
               >noahjmoore23@gmail.com</a
             >
             <a class="btn btn-lg" href="tel:+12058615900">(205) 861-5900</a>
-            <a class="btn btn-lg" href="https://www.linkedin.com/in/noah-moore-09a7151bb/" rel="noopener"
+            <a class="btn btn-lg" href="https://www.linkedin.com/in/noah-moore-09a7151bb/" target="_blank" rel="noopener"
               >LinkedIn</a
             >
           </div>
@@ -417,10 +493,10 @@
 
     <footer class="foot">
       <div class="wrap foot-inner">
-        <span>&copy; <span id="year">2026</span> Noah Moore</span>
+        <span>&copy; Noah Moore</span>
         <span class="foot-links">
           <a href="mailto:noahjmoore23@gmail.com">Email</a>
-          <a href="https://www.linkedin.com/in/noah-moore-09a7151bb/" rel="noopener">LinkedIn</a>
+          <a href="https://www.linkedin.com/in/noah-moore-09a7151bb/" target="_blank" rel="noopener">LinkedIn</a>
         </span>
       </div>
     </footer>
