@@ -5,6 +5,12 @@ on:
     branches: ['**']
   pull_request:
 
+# This workflow only reads the checkout — it never writes to the repo, publishes
+# a package, or touches the branch GitHub Pages serves from. Declaring that here
+# stops GITHUB_TOKEN inheriting whatever the repository default happens to be.
+permissions:
+  contents: read
+
 jobs:
   check:
     runs-on: ubuntu-latest
