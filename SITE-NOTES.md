@@ -13,11 +13,14 @@ docs/
   assets/
     resume.pdf  served by the "Résumé (PDF)" button
     favicon.svg browser tab icon
-    og.svg      source for the link-preview image
-    og.png      what LinkedIn / iMessage / Slack show — re-export from og.svg
-                at 1200x630 and LOOK AT THE RESULT before publishing; a failed
-                export produces a valid-but-blank PNG that scrapers accept and
-                render as a white box.
+    og.png      what LinkedIn / iMessage / Slack show. Its source is
+                ../assets-src/og.svg, kept outside docs/ so it is not served:
+                every SVG under docs/ is a same-origin script-execution surface
+                if one ever contains script, and this one held a second public
+                copy of the email address for no benefit. Re-export at 1200x630
+                and LOOK AT THE RESULT before publishing — a failed export
+                produces a valid-but-blank PNG that scrapers accept and render
+                as a white box.
 ```
 
 Every fact on the page comes from the résumé. Nothing is invented and nothing is
