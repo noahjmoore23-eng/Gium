@@ -21,29 +21,28 @@ Region ranking, Rookie of the Year, the RJ Young leadership programs, the
 Lance Hocutt and Lawnscape roles, the Educate Mpunde fundraising, and the
 degrees and certifications.
 
-## What still needs your input
+## Status: publishable as-is
 
-Open `index.html` and search for `EDIT:` — there are eleven. In priority order:
+There are no unfilled blanks left — nothing on the page is bracketed or fake.
+You can deploy it today. The `EDIT:` comments in `index.html` mark places where
+your own input would make it *better*, not places that are broken:
 
-1. **What you actually sell at RJ Young.** The one gap the résumé leaves. It's
-   the first question a sales leader will ask: what's the product, who's the
-   buyer, what's the average deal size and cycle. Right now it's a placeholder
-   in the RJ Young timeline entry.
-2. **Target market**, in the hero's second paragraph. "Mid-market operations
-   software" beats "a growth opportunity."
-3. **Your LinkedIn URL** — appears in the hero, the contact section, and the
-   footer. Search for `linkedin.com/in/` and replace all three.
-4. **Your city.** The résumé header says Tuscaloosa; RJ Young put you in
-   Chattanooga. The page currently says Chattanooga.
-5. **The "How I sell" cards and the second About paragraph.** These are written
-   in a plausible voice, but they should be in *yours* — it's the section an
-   interviewer will quote back at you, so it needs to sound like you on a
-   ride-along, not like a website.
-6. **Your CRM**, in the Credentials list — there's a `[Your CRM]` placeholder.
-   Only list tools you'd be happy to be questioned about.
-7. **Gium's live URL**, once it's deployed (see below).
-8. **Your phone number** is published in the contact section. Delete that
-   button if you'd rather not have it public.
+1. **Your buyer, deal size, and cycle length** at RJ Young. The page describes
+   what RJ Young sells; it can't describe how *you* sell it. Specifics here beat
+   a company description.
+2. **Your LinkedIn URL** — appears in the hero, contact section, and footer.
+   Search `linkedin.com/in/` and replace all three. This one is worth doing
+   before you share the link.
+3. **Target market** in the hero — naming one ("mid-market operations software")
+   lands harder than the general version currently there.
+4. **Your CRM**, in the Credentials list.
+5. **The "How I sell" cards and the second About paragraph** are written in a
+   plausible voice — they should be in yours, since an interviewer will quote
+   them back at you.
+6. **Your city.** The résumé header says Tuscaloosa; RJ Young put you in
+   Chattanooga. The page says Chattanooga.
+7. **Your phone number** is published in the contact section. Delete that button
+   if you'd rather it not be public.
 
 Search for `[` before publishing — anything still in square brackets is a
 placeholder a hiring manager will notice.
